@@ -1,2 +1,16 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title,"Help") %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %></title>
+</head>
+<body>
+  <h1>StaticPages#home</h1>
+  <p>Find me in app/views/static_pages/home.html.erb</p>
+  <p>
+    Contratz me in
+    <a href="https://meowsqaq.github.io/blog/">blog</a>
+    Nice to meet you!
+  </p>
+</body>
+</html>
