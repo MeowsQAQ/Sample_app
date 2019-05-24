@@ -9,14 +9,16 @@ module SessionsHelper
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
+  def current_user?(user)
+    user = current_user
+  end
   # return current_user
   def current_user
     if(user_id=session[:user_id])
       @current_user ||= User.find_by(id:user_id)
     elsif (user_id = cookies.signed[:user_id])
-      raise #测试仍能通过，所以没有覆盖这个分支
       user = User.find_by(id:user_id)
-      if user && user.authenticate?(cookies[:remember_token])
+      if user && user.authenticated?(cookies[:remember_token])
         log_in user
         @current_user = user
       end
@@ -37,5 +39,14 @@ module SessionsHelper
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
+  end
+  # 重定向到存储的地址或者默认地址
+  def redirec_back_or(default)
+    redirect_to(session[:forwarding_url]||default)
+    session.delete(:forwarding_url)
+  end
+  # 存储后面需要使用的地址
+  def store_location
+    session[:forwarding_url] = request.original_ul if request.get?
   end
 end
