@@ -31,7 +31,15 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host ='localhost:3000' # 不要原封不动的使用这个域名
+                      # 应该使用本地的开发主机地址
+
+  # 在云端 IDE 中使用这一行
+  # config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  # 在本地设备中使用这一行
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' } #针对本地服务器将https改为http
 
   config.action_mailer.perform_caching = false
 
