@@ -75,7 +75,7 @@ Rails.application.configure do
     :authentication => :login,
     :user_name => '243198106@qq.com',
     :domain => 'qq.com',
-    :password => 'aqrqryhebyctbie',
+    :password => 'uutkalecinhkbicj',
     :enable_starttls_auto => true
 }
 
