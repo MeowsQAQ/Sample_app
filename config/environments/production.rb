@@ -71,9 +71,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :address => 'smtp.qq.com',
-    :port => '587',
+    :port => 587,
     :authentication => :login,
-    :user_name => '243198106',
+    :user_name => '243198106@qq.com',
     :domain => 'qq.com',
     :password => 'aqrqryhebyctbie',
     :enable_starttls_auto => true
