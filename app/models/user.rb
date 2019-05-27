@@ -41,8 +41,8 @@
 
   # 激活用户
   def activate
-    update_attribute(:activated,    :true)
-    update_attribute("activated_at",:Time.zone.now)
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at,Time.zone.now)
   end
 
   # 发送激活邮件
