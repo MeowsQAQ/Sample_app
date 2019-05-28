@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Selenium (1.1.14)
     actioncable (5.2.3)
       actionpack (= 5.2.3)
       nio4r (~> 2.0)
@@ -171,6 +172,8 @@ GEM
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
+    selenium-rails (0.0.3)
+      Selenium (>= 1.1.14)
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -234,6 +237,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-controller-testing
   sass-rails (~> 5.0)
+  selenium-rails
   selenium-webdriver
   sendgrid-rails
   sqlite3
