@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def account_activation(user)
     @user = user
-    mail from:"243198106@qq.com", to: user.email , subject:"Account activation"
+    mail from:"Sample App", to: user.email , subject:"Account activation"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
