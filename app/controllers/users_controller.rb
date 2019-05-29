@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page:params[:page])
   end
 
   def edit
@@ -45,15 +46,6 @@ class UsersController < ApplicationController
                                     :password_confirmation)
     end
     # 前置过滤器
-    # 确保用户已经登录
-    def logged_in_user
-      # 未登录时
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in "
-        redirect_to login_url
-      end
-    end
     #确保正确用户
     def correct_user
       @user =User.find(params[:id])

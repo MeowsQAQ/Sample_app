@@ -11,6 +11,8 @@ gem 'sqlite3', :group =>[:development, :test]
 gem 'sendgrid-rails'
 # fake users
 gem 'faker', '~>1.9.3'
+# photo  +mini_magick
+gem 'carrierwave'
 # Use will paginate
 gem 'bootstrap-will_paginate'
 #  Use Puma as the app server
@@ -37,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -67,6 +69,7 @@ group :test do
 end
 
 group :production do
+  gem 'fog' # to use photo
   gem 'thin'
   gem 'pg'
 end
