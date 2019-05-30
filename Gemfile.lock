@@ -467,7 +467,7 @@ DEPENDENCIES
   fog
   jbuilder (~> 2.5)
   jquery-rails
-  mini_magick (~> 4.8)
+  mini_magick
   pg
   puma (~> 3.11)
   rails (~> 5.2.3)
