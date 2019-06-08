@@ -20,6 +20,7 @@
     has_secure_password
     validates :password,presence: true, length:{minimum:6},allow_nil:true
 
+
     # 返回字符串的哈希摘要
     def self.digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -52,6 +53,7 @@
     # 激活用户
     def activate
       update_columns(activated: true,activated_at: Time.zone.now)
+      self.default_follow
     end
 
     # 发送激活邮件
@@ -102,6 +104,14 @@
       following.include?(other_user)
     end
 
+    #自动关注
+    def default_follow
+      users = User.all
+      dfollowings = users[1..25]
+      dfollowings.each do |dfollowing|
+        self.follow(dfollowing)
+      end
+    end
     private
       def downcase_email
         self.email = email.downcase
@@ -111,5 +121,4 @@
         self.activation_token = User.new_token
         self.activation_digest = User.digest(activation_token)
       end
-
 end
